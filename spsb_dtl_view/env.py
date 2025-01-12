@@ -6,9 +6,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    host: str
+    port: int
     api_key: str
     spreadsheet_id: str
     cache_fp: str
+    log_fp: str
     update_interval: timedelta
 
     model_config = SettingsConfigDict(env_file=".env")
