@@ -2,6 +2,10 @@
     color: var(--color-fg);
 }
 
+a:hover {
+    color: var(--color-fg-hover);
+}
+
 html,
 body {
     background-color: var(--color-bg-1);
@@ -13,7 +17,7 @@ h1 {
 }
 
 .tierlist {
-    max-width: 50%;
+    max-width: clamp(70%, 800px, 90%);
     margin: 0 auto 1rem auto;
 }
 
@@ -75,9 +79,6 @@ h1 {
     font-weight: bold;
 }
 
-@media screen and (min-width: 960px) {
-}
-
 .tier-element {
     min-width: 8em;
     padding: 0.5em 1em;
@@ -90,4 +91,38 @@ h1 {
 .tier-element h3 {
     margin: 0;
     font-weight: normal;
+}
+
+.embed-video {
+    width: 200px;
+    height: 120px;
+}
+
+.embed-video {
+    background-color: var(--color-bg-2);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 0.5em;
+}
+
+.embed-video-placeholder {
+    cursor: pointer;
+}
+
+.embed-video-placeholder:hover > p {
+    color: var(--color-fg-hover);
+}
+
+.nickname {
+    text-decoration: none;
+}
+
+// disable savefrom button
+.nickname ~ span {
+    display: none;
+}
+
+.embed-video {
+    display: none;
 }
