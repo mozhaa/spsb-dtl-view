@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ url_for('static', path='/css/dtl.css') }}">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}" />
+        <link rel="shortcut icon" href="{{ url_for('static', path='/favicon.ico') }}" type="image/x-icon" />
         <title>SPSB Dynamic Tier List</title>
     </head>
     <body>
-        {% for item in items %}
-        <h1>{{ item.nickname }}</h1>
-        {% endfor %}
+        <h1>SPSB Dynamic Tier List</h1>
+        <div class="tierlist">
+            {% for tier, items in items.items() %}
+            <div class="tier tier-{{ loop.index }}">
+                <h2 class="tier-title">{{ tier }}</h2>
+                <div class="tier-elements">
+                    {% for item in items %}
+                    <div class="tier-element">
+                        <h3>{{ item.nickname }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </body>
 </html>
