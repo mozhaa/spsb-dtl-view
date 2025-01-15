@@ -6,7 +6,7 @@ from typing import List, Optional, Tuple, Dict
 
 import gspread
 
-from spsb_dtl_view.env import getenv
+from env import getenv
 
 logger = logging.getLogger(__name__)
 
