@@ -126,3 +126,23 @@ h1 {
 .embed-video {
     display: none;
 }
+
+#refresh-button {
+    padding: 0;
+    width: 1em;
+    cursor: pointer;
+    margin-left: .5em;
+    margin-bottom: .2em;
+    vertical-align:middle;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+
+    &:hover {
+        filter: brightness(80%);
+    }
+    
+    &:active {
+        filter: brightness(70%);
+    }
+}

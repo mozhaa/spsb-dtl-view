@@ -9,4 +9,12 @@ $(() => {
         $(this).parent().append(video);
         $(this).remove();
     });
+
+    $("#refresh-button").on("click", function () {
+        fetch($(this).data("url"), {
+            method: "POST",
+        }).then((response) => {
+            location.reload();
+        });
+    });
 });
