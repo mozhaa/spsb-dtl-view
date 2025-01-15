@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     cache_fp: str
     log_fp: str
     update_interval: timedelta
+    update_request_interval_limit: timedelta
 
     model_config = SettingsConfigDict(env_file=".env")
 
