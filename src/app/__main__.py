@@ -6,6 +6,7 @@ from src.env import getenv
 
 from .app import app
 from .scss import compile_scss
+from src.utils.dtl import update_dtl
 
 if __name__ == "__main__":
     logging.basicConfig(
@@ -22,4 +23,5 @@ if __name__ == "__main__":
     logging.getLogger("root").addHandler(console)
 
     compile_scss()
+    update_dtl()
     uvicorn.run(app, host=getenv("host"), port=getenv("port"))
