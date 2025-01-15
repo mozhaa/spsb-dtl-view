@@ -1,6 +1,6 @@
 import json
 import logging
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from datetime import datetime
 from typing import List, Optional, Tuple, Dict
 
@@ -58,7 +58,7 @@ class DTL:
         try:
             items, updated_at = self._read_from_cache()
         except Exception as e:
-            logger.info(f"Couldn't parse DTL from cache, fetching from spreadsheets. Exception:\n{e}")
+            logger.info(f"Couldn't parse DTL from cache, fetching from spreadsheets.\nException:\n{e}")
 
         if updated_at is None or datetime.now() - updated_at > getenv("update_interval"):
             try:
@@ -66,7 +66,7 @@ class DTL:
                 self._save_to_cache(new_items)
                 return new_items
             except Exception as e:
-                logger.error(f"Failed to fetch DTL from spreadsheets. Exception:\n{e}")
+                logger.error(f"Failed to fetch DTL from spreadsheets.\nException:\n{e}")
 
         if items is None:
             raise RuntimeError("Failed to get DTL both from cache and from spreadsheets")
@@ -82,7 +82,7 @@ class DTL:
 
     def _save_to_cache(self, items: List[DTLItem]) -> None:
         logger.info("Saving DTL to cache...")
-        obj = {"updated_at": datetime.now().strftime(DATE_FORMAT), "items": list(map(asdict, items))}
+        obj = {"updated_at": datetime.now().strftime(DATE_FORMAT), "items": [item.__dict__ for item in items]}
         with open(getenv("cache_fp"), "w+", encoding="utf-8") as file:
             json.dump(obj, file)
 
