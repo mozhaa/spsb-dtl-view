@@ -2,9 +2,10 @@ import logging
 
 import uvicorn
 
-from spsb_dtl_view.env import getenv
+from src.env import getenv
 
 from .app import app
+from .scss import compile_scss
 
 if __name__ == "__main__":
     logging.basicConfig(
@@ -20,4 +21,5 @@ if __name__ == "__main__":
     console.setFormatter(formatter)
     logging.getLogger("root").addHandler(console)
 
+    compile_scss()
     uvicorn.run(app, host=getenv("host"), port=getenv("port"))

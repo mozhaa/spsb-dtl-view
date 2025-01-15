@@ -5,8 +5,8 @@ from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from env import getenv
-from dtl import DTL
+from src.dtl import DTL
+from src.env import getenv
 
 templates = Jinja2Templates(directory="templates")
 

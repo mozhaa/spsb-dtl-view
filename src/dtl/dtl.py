@@ -6,7 +6,7 @@ from typing import List, Optional, Tuple, Dict
 
 import gspread
 
-from env import getenv
+from src.env import getenv
 
 logger = logging.getLogger(__name__)
 
