@@ -10,7 +10,7 @@ from src.env import getenv
 
 templates = Jinja2Templates(directory="templates")
 
-app = FastAPI(title="app")
+app = FastAPI(title="app", docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
