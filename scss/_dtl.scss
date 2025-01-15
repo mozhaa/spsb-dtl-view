@@ -1,0 +1,93 @@
+* {
+    color: var(--color-fg);
+}
+
+html,
+body {
+    background-color: var(--color-bg-1);
+}
+
+h1 {
+    margin: 1em 0 1em 0;
+    text-align: center;
+}
+
+.tierlist {
+    max-width: 50%;
+    margin: 0 auto 1rem auto;
+}
+
+.tier {
+    margin-top: 0.8rem;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+}
+
+.tier-elements {
+    background-color: var(--color-bg-2);
+    border-radius: 0 10px 10px 0;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+
+.tier-1 {
+    background-color: var(--color-tier-1);
+}
+
+.tier-2 {
+    background-color: var(--color-tier-2);
+}
+
+.tier-3 {
+    background-color: var(--color-tier-3);
+}
+
+.tier-4 {
+    background-color: var(--color-tier-4);
+}
+
+.tier-5 {
+    background-color: var(--color-tier-5);
+}
+
+.tier-6 {
+    background-color: var(--color-tier-6);
+}
+
+.tier-7 {
+    background-color: var(--color-tier-7);
+}
+
+.tier-title {
+    width: max-content;
+    height: max-content;
+    justify-self: center;
+    margin: auto 0;
+
+    font-weight: bold;
+}
+
+@media screen and (min-width: 960px) {
+}
+
+.tier-element {
+    min-width: 8em;
+    padding: 0.5em 1em;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid hsl(from var(--color-bg-2) h s 40%);
+    background-color: var(--color-bg-1);
+}
+
+.tier-element h3 {
+    margin: 0;
+    font-weight: normal;
+}
