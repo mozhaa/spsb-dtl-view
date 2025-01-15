@@ -10,7 +10,25 @@
         <title>SPSB Dynamic Tier List</title>
     </head>
     <body>
-        <h1>SPSB Dynamic Tier List</h1>
+        <h1>
+            SPSB Dynamic Tier List
+            <button id="refresh-button" type="button" title="Refresh" data-url="{{ url_for('refresh_tierlist') }}">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon_large--kU97r"
+                >
+                    <path
+                        d="M4.58 9H4V4l.58 5Zm0 0a8 8 0 0 1 15.36 2M4.58 9H9m10.42 6H20v5l-.58-5Zm0 0a8 8 0 0 1-15.36-2m15.36 2H15"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    ></path>
+                </svg>
+            </button>
+        </h1>
         <div class="tierlist">
             {% for tier, people in dtl["data"].items() %}
             <div class="tier tier-{{ loop.index }}">
