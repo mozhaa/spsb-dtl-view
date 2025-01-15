@@ -5,18 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}" />
         <link rel="shortcut icon" href="{{ url_for('static', path='/favicon.ico') }}" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{{ url_for('static', path='/js/dtl.js') }}"></script>
         <title>SPSB Dynamic Tier List</title>
     </head>
     <body>
         <h1>SPSB Dynamic Tier List</h1>
         <div class="tierlist">
-            {% for tier, items in items.items() %}
+            {% for tier, people in dtl["data"].items() %}
             <div class="tier tier-{{ loop.index }}">
                 <h2 class="tier-title">{{ tier }}</h2>
                 <div class="tier-elements">
-                    {% for item in items %}
+                    {% for person in people %}
                     <div class="tier-element">
-                        <h3>{{ item.nickname }}</h3>
+                        <h3><a class="nickname" href="{{ person['video_direct'] }}">{{ person['nickname'] }}</a></h3>
+                        <div
+                            class="embed-video embed-video-placeholder"
+                            data-src-embed="{{ person['video_embed'] }}"
+                            data-src-direct="{{ person['video_direct'] }}"
+                        >
+                            <p>Video</p>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
