@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["mozhaa <mozhay2005@gmail.com>"]
 readme = "README.md"
-packages = [{include = "*", from="spsb_dtl_view"}]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.13"
