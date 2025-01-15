@@ -5,7 +5,7 @@ from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from src.dtl import DTL
+from src.utils import get_dtl, update_dtl
 from src.env import getenv
 
 templates = Jinja2Templates(directory="templates")
@@ -23,10 +23,10 @@ def update_dtl(request: Request):
     else:
         update_requests[str(request.client)] = datetime.now()
         # TODO: clear this map for efficiency
-        DTL().update()
+        update_dtl()
         return Response(status_code=200)
 
 
 @app.get("/")
 def get_mainpage(request: Request):
-    return templates.TemplateResponse(request=request, name="dtl.html", context={"items": DTL().items_by_tiers})
+    return templates.TemplateResponse(request=request, name="dtl.html", context={"dtl": get_dtl()})
