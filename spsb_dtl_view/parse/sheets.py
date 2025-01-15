@@ -2,7 +2,7 @@ import json
 import logging
 from dataclasses import asdict, dataclass
 from datetime import datetime
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict
 
 import gspread
 
@@ -42,6 +42,17 @@ class Table:
 
 class DTL:
     @property
+    def items_by_tiers(self) -> Dict[str, List[DTLItem]]:
+        result = {tier: [] for tier in TIERS}
+        for item in self.items:
+            result[item.tier].append(item)
+            if len(result[item.tier]) != item.position:
+                logging.warning(
+                    f"DTL data is incorrect! Tier members must go in order of their tier positions ({item})"
+                )
+        return result
+
+    @property
     def items(self) -> List[DTLItem]:
         items, updated_at = None, None
         try:
@@ -67,7 +78,7 @@ class DTL:
     def _read_from_cache(self) -> Tuple[List[DTLItem], datetime]:
         with open(getenv("cache_fp"), "r", encoding="utf-8") as file:
             obj = json.load(file)
-        return obj["items"], datetime.strptime(obj["updated_at"], DATE_FORMAT)
+        return [DTLItem(**item) for item in obj["items"]], datetime.strptime(obj["updated_at"], DATE_FORMAT)
 
     def _save_to_cache(self, items: List[DTLItem]) -> None:
         logger.info("Saving DTL to cache...")

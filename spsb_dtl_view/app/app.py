@@ -12,4 +12,4 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 def get_mainpage(request: Request):
-    return templates.TemplateResponse(request=request, name="dtl.html", context={"items": DTL().items})
+    return templates.TemplateResponse(request=request, name="dtl.html", context={"items": DTL().items_by_tiers})
