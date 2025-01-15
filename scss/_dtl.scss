@@ -79,8 +79,13 @@ h1 {
     font-weight: bold;
 }
 
+.tier-element h3 {
+    margin: 0;
+    font-weight: normal;
+}
+
 .tier-element {
-    min-width: 8em;
+    min-width: 16em;
     padding: 0.5em 1em;
     text-align: center;
     border-radius: 8px;
@@ -88,14 +93,10 @@ h1 {
     background-color: var(--color-bg-1);
 }
 
-.tier-element h3 {
-    margin: 0;
-    font-weight: normal;
-}
-
 .embed-video {
-    width: 200px;
-    height: 120px;
+    width: 100%;
+    max-width: 222px;
+    aspect-ratio: 16 / 9;
 }
 
 .embed-video {
@@ -114,16 +115,22 @@ h1 {
     color: var(--color-fg-hover);
 }
 
+@media screen and (max-width: 700px) {
+    .tier-element {
+        width: 100%;
+    }
+
+    .embed-video {
+        max-width: 100%;
+    }
+}
+
 .nickname {
     text-decoration: none;
 }
 
 // disable savefrom button
 .nickname ~ span {
-    display: none;
-}
-
-.embed-video {
     display: none;
 }
 
