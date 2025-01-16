@@ -1,4 +1,6 @@
+import asyncio
 from datetime import datetime
+from typing import Optional
 
 from fastapi import FastAPI, Request
 from fastapi.responses import Response
@@ -13,20 +15,17 @@ templates = Jinja2Templates(directory="templates")
 app = FastAPI(title="app", docs_url=None, redoc_url=None)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-update_requests = {}
+previous_update = datetime.min
+previous_update_lock = asyncio.Lock()
 
 
 @app.post("/update")
-def refresh_tierlist(request: Request):
-    global update_requests
-    # clear expired records
-    records = list(update_requests.items())
-    for client, request_time in records:
-        if datetime.now() - request_time >= getenv("update_request_interval_limit"):
-            update_requests.pop(client)
-    if str(request.client.host) in update_requests:
-        return Response(status_code=429)
-    update_requests[str(request.client.host)] = datetime.now()
+async def refresh_tierlist(request: Request):
+    global previous_update
+    async with previous_update_lock:
+        if datetime.now() - previous_update < getenv("update_request_interval_limit"):
+            return Response(status_code=429)
+        previous_update = datetime.now()
     update_dtl()
     return Response(status_code=200)
 
