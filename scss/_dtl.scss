@@ -11,9 +11,9 @@ body {
     background-color: var(--color-bg-1);
 }
 
-.tierlist {
+body {
     max-width: clamp(70%, 800px, 90%);
-    margin: 0 auto 1rem auto;
+    margin: 0 auto;
 }
 
 .tier {
@@ -80,7 +80,7 @@ body {
 }
 
 .tier-element {
-    min-width: 16em;
+    min-width: var(--element-width, 8em);
     padding: 0.5em 1em;
     text-align: center;
     border-radius: 8px;
@@ -165,4 +165,20 @@ body {
     &:active {
         filter: brightness(70%);
     }
+}
+
+.embed-video {
+    display: none;
+}
+
+.header:has(#show-videos:checked) ~ .tierlist {
+    --element-width: 16em;
+
+    & .embed-video {
+        display: grid;
+    }
+}
+
+#show-videos {
+    margin-left: .5em;
 }
