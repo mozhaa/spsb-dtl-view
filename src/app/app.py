@@ -33,3 +33,8 @@ def refresh_tierlist(request: Request):
 @app.get("/")
 def get_tierlist(request: Request):
     return templates.TemplateResponse(request=request, name="dtl.html", context={"dtl": get_dtl()})
+
+
+@app.get("/rules")
+def get_rules(request: Request):
+    return templates.TemplateResponse(request=request, name="rules.html")

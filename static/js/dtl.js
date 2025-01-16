@@ -17,4 +17,15 @@ $(() => {
             location.reload();
         });
     });
+
+    var themes = $.map($(".theme-switch"), function (element) {
+        return $(element).data("theme-name");
+    });
+
+    $(".theme-switch").on("click", function () {
+        themes.forEach((theme_name) => {
+            $("body").removeClass(theme_name);
+        });
+        $("body").addClass($(this).data("theme-name"));
+    });
 });

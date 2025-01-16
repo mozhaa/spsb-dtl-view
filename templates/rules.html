@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}" />
+        <link rel="shortcut icon" href="{{ url_for('static', path='/favicon.ico') }}" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <title>SPSB Dynamic Tier List</title>
+    </head>
+    <body>
+        <h1 class="main-header"><a href="{{ url_for('get_rules') }}">Rules</a></h1>
+        <h3 class="sub-header"><a href="{{ url_for('get_tierlist') }}">Back to tier list</a></h3>
+    </body>
+</html>
