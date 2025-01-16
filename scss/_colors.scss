@@ -1,10 +1,32 @@
-* {
+body {
+    --color-1-bg-1: #171135;
+    --color-1-bg-2: #261d4a;
+
+    --color-2-bg-1: #200e7a;
+    --color-2-bg-2: #624ac4;
+}
+
+body.color-theme-1 {
     --color-fg: white;
     --color-fg-hover: hsl(251, 100%, 85%);
-    --color-bg-1: #171135;
-    --color-bg-2: #261d4a;
+    --color-bg-1: var(--color-1-bg-1);
+    --color-bg-2: var(--color-1-bg-2);
     --color-tier-1: #2e2e2e;
     --color-tier-2: #640f24;
+    --color-tier-3: #845d32;
+    --color-tier-4: #5b155b;
+    --color-tier-5: #0b3915;
+    --color-tier-6: #0b2b39;
+    --color-tier-7: #230b39;
+}
+
+body.color-theme-2 {
+    --color-fg: white;
+    --color-fg-hover: hsl(251, 100%, 85%);
+    --color-bg-1: var(--color-2-bg-1);
+    --color-bg-2: var(--color-2-bg-2);
+    --color-tier-1: #2e2e2e;
+    --color-tier-2: #ff1b54;
     --color-tier-3: #845d32;
     --color-tier-4: #5b155b;
     --color-tier-5: #0b3915;

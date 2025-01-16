@@ -9,7 +9,7 @@
         <script src="{{ url_for('static', path='/js/dtl.js') }}"></script>
         <title>SPSB Dynamic Tier List</title>
     </head>
-    <body>
+    <body class="color-theme-1">
         <div class="header">
             <h1 class="main-header">
                 SPSB Dynamic Tier List
@@ -26,8 +26,14 @@
                 </button>
             </h1>
             <!-- <h3 class="sub-header"><a href="{{ url_for('get_rules') }}">Rules</a></h3> -->
-            <input type="checkbox" name="show-videos" id="show-videos" />
-            <label for="show-videos">Show embedded videos</label>
+            <div class="control-panel">
+                <input type="checkbox" name="show-videos" id="show-videos" />
+                <label for="show-videos">Show embedded videos</label>
+
+                <label class="color-theme-label">Color theme: </label>
+                <button class="theme-switch" id="theme-switch-1" data-theme-name="color-theme-1" type="button"></button>
+                <button class="theme-switch" id="theme-switch-2" data-theme-name="color-theme-2" type="button"></button>
+            </div>
         </div>
         <div class="tierlist">
             {% for tier, people in dtl["data"].items() %}

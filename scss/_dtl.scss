@@ -180,5 +180,50 @@ body {
 }
 
 #show-videos {
-    margin-left: .5em;
+    margin-left: 0.5em;
+}
+
+.control-panel {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.color-theme-label {
+    margin-left: auto;
+}
+
+.theme-switch {
+    height: 1em;
+    aspect-ratio: 1 / 1;
+    margin: auto 0;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 2px 1px var(--color-fg);
+    }
+}
+
+#theme-switch-1 {
+    background-color: var(--color-1-bg-1);
+    border: 1px solid var(--color-1-bg-2);
+}
+
+#theme-switch-2 {
+    background-color: var(--color-2-bg-1);
+    border: 1px solid var(--color-2-bg-2);
+}
+
+body.color-theme-1 #theme-switch-1::after,
+body.color-theme-2 #theme-switch-2::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    content: "";
+    height: .2em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: var(--color-fg);
 }
