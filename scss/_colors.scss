@@ -1,16 +1,16 @@
 body {
     --color-1-bg-1: #171135;
-    --color-1-bg-2: #261d4a;
+    --color-1-fg: white;
 
-    --color-2-bg-1: #200e7a;
-    --color-2-bg-2: #624ac4;
+    --color-2-bg-1: #FDFFFF;
+    --color-2-fg: #280000;
 }
 
 body.color-theme-1 {
-    --color-fg: white;
+    --color-fg: var(--color-1-fg);
+    --color-fg-tier: white;
     --color-fg-hover: hsl(251, 100%, 85%);
     --color-bg-1: var(--color-1-bg-1);
-    --color-bg-2: var(--color-1-bg-2);
     --color-tier-1: #2e2e2e;
     --color-tier-2: #640f24;
     --color-tier-3: #845d32;
@@ -21,15 +21,15 @@ body.color-theme-1 {
 }
 
 body.color-theme-2 {
-    --color-fg: white;
-    --color-fg-hover: hsl(251, 100%, 85%);
+    --color-fg: var(--color-2-fg);
+    --color-fg-tier: #FDFFFF;
+    --color-fg-hover: #570000;
     --color-bg-1: var(--color-2-bg-1);
-    --color-bg-2: var(--color-2-bg-2);
-    --color-tier-1: #2e2e2e;
-    --color-tier-2: #ff1b54;
-    --color-tier-3: #845d32;
-    --color-tier-4: #5b155b;
-    --color-tier-5: #0b3915;
-    --color-tier-6: #0b2b39;
-    --color-tier-7: #230b39;
+    --color-tier-1: #2c2828;
+    --color-tier-2: #B10F2E;
+    --color-tier-3: #c77a21;
+    --color-tier-4: #a9ce26;
+    --color-tier-5: #169fb1;
+    --color-tier-6: #0f3ab1;
+    --color-tier-7: #7515a1;
 }

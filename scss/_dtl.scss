@@ -6,6 +6,10 @@ a:hover {
     color: var(--color-fg-hover);
 }
 
+a:active {
+    color: color-mix(in srgb, var(--color-fg-hover), var(--color-bg-1) 20%);
+}
+
 html,
 body {
     background-color: var(--color-bg-1);
@@ -16,7 +20,36 @@ body {
     margin: 0 auto;
 }
 
+.tier-1 {
+    --color-tier-color: var(--color-tier-1);
+}
+
+.tier-2 {
+    --color-tier-color: var(--color-tier-2);
+}
+
+.tier-3 {
+    --color-tier-color: var(--color-tier-3);
+}
+
+.tier-4 {
+    --color-tier-color: var(--color-tier-4);
+}
+
+.tier-5 {
+    --color-tier-color: var(--color-tier-5);
+}
+
+.tier-6 {
+    --color-tier-color: var(--color-tier-6);
+}
+
+.tier-7 {
+    --color-tier-color: var(--color-tier-7);
+}
+
 .tier {
+    background-color: var(--color-tier-color);
     margin-top: 0.8rem;
     border-radius: 10px;
 
@@ -25,7 +58,7 @@ body {
 }
 
 .tier-elements {
-    background-color: var(--color-bg-2);
+    background-color: color-mix(in srgb, var(--color-tier-color), var(--color-bg-1) 60%);
     border-radius: 0 10px 10px 0;
 
     display: flex;
@@ -37,40 +70,12 @@ body {
     padding: 0.5rem 1rem 0.5rem 0.5rem;
 }
 
-.tier-1 {
-    background-color: var(--color-tier-1);
-}
-
-.tier-2 {
-    background-color: var(--color-tier-2);
-}
-
-.tier-3 {
-    background-color: var(--color-tier-3);
-}
-
-.tier-4 {
-    background-color: var(--color-tier-4);
-}
-
-.tier-5 {
-    background-color: var(--color-tier-5);
-}
-
-.tier-6 {
-    background-color: var(--color-tier-6);
-}
-
-.tier-7 {
-    background-color: var(--color-tier-7);
-}
-
 .tier-title {
     width: max-content;
     height: max-content;
     justify-self: center;
     margin: auto 0;
-
+    color: var(--color-fg-tier);
     font-weight: bold;
 }
 
@@ -84,8 +89,16 @@ body {
     padding: 0.5em 1em;
     text-align: center;
     border-radius: 8px;
-    border: 1px solid hsl(from var(--color-bg-2) h s 40%);
-    background-color: var(--color-bg-1);
+    border: 1px solid hsl(from var(--color-tier-color) h s 60%);
+    background-color: color-mix(in srgb, var(--color-tier-color), var(--color-bg-1) 80%);
+
+    & *:hover {
+        color: color-mix(in srgb, color-mix(in srgb, var(--color-tier-color), var(--color-fg) 70%), white 30%);
+    }
+
+    & *:active {
+        color: color-mix(in srgb, color-mix(in srgb, var(--color-tier-color), var(--color-fg) 50%), white 30%);
+    }
 }
 
 .embed-video {
@@ -95,7 +108,9 @@ body {
 }
 
 .embed-video {
-    background-color: var(--color-bg-2);
+    background-color: transparent;
+    border-radius: 5px;
+    border: 2px solid hsl(from var(--color-tier-color) h s 60%);
     display: grid;
     justify-items: center;
     align-items: center;
@@ -104,10 +119,6 @@ body {
 
 .embed-video-placeholder {
     cursor: pointer;
-}
-
-.embed-video-placeholder:hover > p {
-    color: var(--color-fg-hover);
 }
 
 @media screen and (max-width: 700px) {
@@ -158,12 +169,12 @@ body {
     border: 0;
     outline: 0;
 
-    &:hover {
-        filter: brightness(80%);
+    &:hover * {
+        color: var(--color-fg-hover);
     }
 
-    &:active {
-        filter: brightness(70%);
+    &:active * {
+        color: color-mix(in srgb, var(--color-fg-hover), var(--color-bg-1) 20%);
     }
 }
 
@@ -206,12 +217,12 @@ body {
 
 #theme-switch-1 {
     background-color: var(--color-1-bg-1);
-    border: 1px solid var(--color-1-bg-2);
+    border: 1px solid color-mix(in srgb, var(--color-1-bg-1), var(--color-1-fg) 30%);
 }
 
 #theme-switch-2 {
     background-color: var(--color-2-bg-1);
-    border: 1px solid var(--color-2-bg-2);
+    border: 1px solid color-mix(in srgb, var(--color-2-bg-1), var(--color-2-fg) 30%);
 }
 
 body.color-theme-1 #theme-switch-1::after,
