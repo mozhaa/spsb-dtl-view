@@ -20,7 +20,8 @@ update_requests = {}
 def refresh_tierlist(request: Request):
     global update_requests
     # clear expired records
-    for client, request_time in update_requests.items():
+    records = update_requests.items()
+    for client, request_time in records:
         if datetime.now() - request_time >= getenv("update_request_interval_limit"):
             update_requests.pop(client)
     if str(request.client.host) in update_requests:
