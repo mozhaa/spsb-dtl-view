@@ -10,7 +10,7 @@
         <title>SPSB Dynamic Tier List</title>
     </head>
     <body>
-        <h1>
+        <h1 class="main-header">
             SPSB Dynamic Tier List
             <button id="refresh-button" type="button" title="Refresh" data-url="{{ url_for('refresh_tierlist') }}">
                 <svg
@@ -29,6 +29,7 @@
                 </svg>
             </button>
         </h1>
+        <h3 class="sub-header"><a href="{{ url_for('get_rules') }}">Rules</a></h3>
         <div class="tierlist">
             {% for tier, people in dtl["data"].items() %}
             <div class="tier tier-{{ loop.index }}">

@@ -11,11 +11,6 @@ body {
     background-color: var(--color-bg-1);
 }
 
-h1 {
-    margin: 1em 0 1em 0;
-    text-align: center;
-}
-
 .tierlist {
     max-width: clamp(70%, 800px, 90%);
     margin: 0 auto 1rem auto;
@@ -129,6 +124,24 @@ h1 {
     text-decoration: none;
 }
 
+.main-header,
+.sub-header {
+    text-align: center;
+
+    & > a {
+        text-decoration: none;
+    }
+}
+
+.main-header {
+    margin-top: 1em;
+}
+
+.sub-header {
+    font-weight: normal;
+    margin-bottom: 1em;
+}
+
 // disable savefrom button
 .nickname ~ span {
     display: none;
@@ -138,9 +151,9 @@ h1 {
     padding: 0;
     width: 1em;
     cursor: pointer;
-    margin-left: .5em;
-    margin-bottom: .2em;
-    vertical-align:middle;
+    margin-left: 0.5em;
+    margin-bottom: 0.2em;
+    vertical-align: middle;
     background-color: transparent;
     border: 0;
     outline: 0;
@@ -148,7 +161,7 @@ h1 {
     &:hover {
         filter: brightness(80%);
     }
-    
+
     &:active {
         filter: brightness(70%);
     }
