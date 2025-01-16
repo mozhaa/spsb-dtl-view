@@ -155,7 +155,14 @@ body {
 }
 
 .main-header {
+    font-size: 1.5rem;
     margin-top: 1em;
+}
+
+@media screen and (min-width: 700px) {
+    .main-header {
+        font-size: 2.5rem;
+    }
 }
 
 .sub-header {
@@ -200,23 +207,39 @@ body {
     }
 }
 
-#show-videos {
-    margin-left: 0.5em;
-}
-
 .control-panel {
+    margin-left: .5rem;
+    margin-top: 1rem;
     display: flex;
-    gap: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0 2rem;
+
+    & > * {
+        flex-shrink: 0;
+
+        & > * {
+            margin-right: .2rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    & > *:first-child {
+        margin-right: auto;
+    }
 }
 
 .color-theme-label {
-    margin-left: auto;
+    margin-right: .5rem;
 }
 
 .theme-switch {
     height: 1em;
     aspect-ratio: 1 / 1;
-    margin: auto 0;
+    margin-top: auto;
+    margin-bottom: auto;
     position: relative;
     cursor: pointer;
 
